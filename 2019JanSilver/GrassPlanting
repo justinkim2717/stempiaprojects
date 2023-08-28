@@ -1,0 +1,23 @@
+package USACO;
+import java.util.*;
+import java.io.*;
+
+public class GrassPlanting {
+    public static void main(String[] args) throws Exception {
+        Scanner s = new Scanner(new File("planting.in"));
+        PrintWriter p = new PrintWriter("planting.out");
+
+        int N = s.nextInt();
+        int[] plots = new int[N];
+
+        int max = -1;
+        for (int i = 0; i < N - 1; i++) {
+            int a = s.nextInt() - 1,
+                b = s.nextInt() - 1;
+            max = Math.max(max, Math.max(++plots[a], ++plots[b]));
+        }
+
+        p.println(max + 1);
+        p.close();
+    }
+}
